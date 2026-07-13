@@ -24,7 +24,6 @@
   --radius:16px;
   --max:1140px;
 }
-
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
@@ -517,6 +516,10 @@ button:hover,.link-btn:hover{
             </div>
           </div>
         </div>
+
+        <div class="actions" style="margin-top:16px;">
+          <button class="btn-primary" id="altBtn" type="button" style="display:none;">Alternative Übung</button>
+        </div>
       </div>
     </div>
 
@@ -541,8 +544,10 @@ const officeNote=document.getElementById("officeNote");
 const circleText=document.getElementById("circleText");
 const breathCircle=document.getElementById("breathCircle");
 const findBtn=document.getElementById("findBtn");
+const altBtn=document.getElementById("altBtn");
 
 let breathTimeouts=[];
+let currentPair=[];
 
 const scienceMap={
   slowExhale:"Eine längere, ruhige Ausatmung kann die parasympathische Regulation unterstützen. Langsame Atmung wird in der Forschung mit besserer autonomer Regulation und einem ruhigeren Atemmuster verbunden.",
@@ -812,12 +817,12 @@ function sortByGoalLogic(goal,list){
   });
 }
 
-function pickTechnique(){
+function pickTechniques(){
   const goal=getValue("goal");
   let list=[...(techniques[goal]||techniques.stress)];
   list=filterForPreferences(list);
   list=sortByGoalLogic(goal,list);
-  return personalizeTechnique(list[0]);
+  return list.map(personalizeTechnique);
 }
 
 function renderTechnique(tech){
@@ -882,9 +887,17 @@ function startBreathingAnimation(sequence){
 }
 
 findBtn.addEventListener("click",()=>{
-  const technique=pickTechnique();
-  renderTechnique(technique);
+  currentPair=pickTechniques();
+  altBtn.style.display = currentPair.length > 1 ? "inline-flex" : "none";
+  renderTechnique(currentPair[0]);
   resultEl.scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+altBtn.addEventListener("click",()=>{
+  if(currentPair.length>1){
+    currentPair.push(currentPair.shift());
+    renderTechnique(currentPair[0]);
+  }
 });
 </script>
 </body>

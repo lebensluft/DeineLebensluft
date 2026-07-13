@@ -294,6 +294,10 @@ button:hover,.link-btn:hover{
   color:var(--forest-900);
   font-size:.96rem;
 }
+.alt-actions{
+  justify-content:center;
+  margin-top:16px;
+}
 .info-box{
   margin-top:16px;
   padding:18px;
@@ -308,7 +312,7 @@ button:hover,.link-btn:hover{
 }
 .cta-group{
   display:grid;
-  grid-template-columns:1.05fr 1fr 1fr;
+  grid-template-columns:1fr 1fr;
   gap:12px;
 }
 .cta-card{
@@ -363,11 +367,10 @@ button:hover,.link-btn:hover{
 }
 @media(max-width:980px){
   .option-grid.goal-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
-  .cta-group{grid-template-columns:1fr;}
 }
 @media(max-width:760px){
   .wrap{padding:16px 14px 32px;}
-  .option-grid,.option-grid.three,.option-grid.goal-grid,.practice-grid{
+  .option-grid,.option-grid.three,.option-grid.goal-grid,.practice-grid,.cta-group{
     grid-template-columns:1fr;
   }
   .card{padding:18px;}
@@ -488,10 +491,14 @@ button:hover,.link-btn:hover{
               <div class="science-copy" id="scienceText"></div>
             </div>
           </div>
+
+          <div class="actions alt-actions">
+            <button class="btn-primary" id="altBtn" type="button" style="display:none;">Alternative Übung</button>
+          </div>
         </div>
 
         <div class="info-box">
-          <p class="cta-copy">Lebensluft unterstützt Menschen mit Breathwork und Atemtraining dabei, Stress zu regulieren, innere Ruhe aufzubauen und sich im Alltag wieder verbundener und klarer zu fühlen – in Einzelsessions, Gruppenformaten und Workshops für Unternehmen.</p>
+          <p class="cta-copy">Lebensluft unterstützt Menschen mit Breathwork und Atemtraining dabei, Stress zu regulieren, innere Ruhe aufzubauen und sich im Alltag wieder verbundener und klarer zu fühlen – in Einzelsessions, Gruppenformaten und Workshops.</p>
 
           <div class="cta-group">
             <div class="cta-card">
@@ -502,23 +509,12 @@ button:hover,.link-btn:hover{
             </div>
 
             <div class="cta-card">
-              <div class="cta-label">Privat</div>
-              <a class="link-btn booking" href="https://calendly.com/lebensluft-breathwork/unverbindliches-erstgesprach-buchen" target="_blank" rel="noopener noreferrer">
-                Erstgespräch vereinbaren
-              </a>
-            </div>
-
-            <div class="cta-card">
-              <div class="cta-label">Unternehmen</div>
-              <a class="link-btn booking" href="https://calendly.com/lebensluft-breathwork/unverbindliches-erstgesprach-unternehmen" target="_blank" rel="noopener noreferrer">
+              <div class="cta-label">Termin</div>
+              <a class="link-btn booking" href="https://calendly.com/lebensluft-breathwork/erstgesprach" target="_blank" rel="noopener noreferrer">
                 Erstgespräch vereinbaren
               </a>
             </div>
           </div>
-        </div>
-
-        <div class="actions" style="margin-top:16px;">
-          <button class="btn-primary" id="altBtn" type="button" style="display:none;">Alternative Übung</button>
         </div>
       </div>
     </div>
